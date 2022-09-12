@@ -40,11 +40,8 @@ export async function getTweetById(tweetId: number) {
 }
 
 export async function deleteTweetById(tweetId) {
- 
-
   const id = Number(tweetId);
   const tweet = await Tweets.findById(id);
- 
 
   const userId = tweet.data.userId;
   const user = await User.findById(userId);
@@ -284,7 +281,11 @@ export async function addComment(body, { authId }) {
   // Aca obtiene la referencia del  tweet en la collection Tweet y al usuario dueño del tweet.
 
   const tweet = await Tweets.findById(body.newComment.tweetId);
+  console.log("TWEET :", tweet);
+
   const tweetOwnerId = tweet.data.userId;
+  console.log("TWEET OWNER ID", tweetOwnerId);
+
   const tweetOwner = await User.findById(tweetOwnerId);
 
   // Obtiene el tweet dentro del tweet owner y le pushea el nuevo comentario.
