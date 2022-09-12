@@ -1,0 +1,28 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "@sendgrid/mail": "^7.7.0",
+    "@types/react": "^18.0.15",
+    "date-fns": "^2.29.2",
+    "firebase": "^9.9.3",
+    "firebase-admin": "^11.0.0",
+    "micro-method-router": "^0.1.0",
+    "next": "^12.2.4",
+    "nextjs-cors": "^2.1.1",
+    "random-int": "^3.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "typescript": "^4.7.4"
+  },
+  "scripts": {
+    "dev": "next dev -p 5500",
+    "build": "next build",
+    "start": "next -p 8080"
+  },
+  "devDependencies": {
+    "sib-api-v3-sdk": "^8.4.2"
+  }
+}
