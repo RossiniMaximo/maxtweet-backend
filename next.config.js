@@ -8,7 +8,7 @@ module.exports = {
           { key: "Access-Control-Allow-Credentials", value: "true" },
           {
             key: "Access-Control-Allow-Origin",
-            value: "http://localhost:3000",
+            value: "https://dwf-m10-challenge.vercel.app",
           },
           {
             key: "Access-Control-Allow-Methods",
