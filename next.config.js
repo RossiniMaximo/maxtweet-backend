@@ -8,7 +8,8 @@ module.exports = {
           { key: "Access-Control-Allow-Credentials", value: "true" },
           {
             key: "Access-Control-Allow-Origin",
-            value: "https://dwf-m10-challenge.vercel.app",
+            value:
+              "https://maxtweet-frontend-m0ajup4cc-rossinimaximo.vercel.app",
           },
           {
             key: "Access-Control-Allow-Methods",
