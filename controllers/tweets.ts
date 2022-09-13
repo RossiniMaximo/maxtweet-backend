@@ -144,6 +144,7 @@ export async function tweetActionCounterUpdater(
 
   const tweetRef = await getTweetById(tweetId);
   const tweetOwnerRef = await User.findById(tweetRef.data.userId);
+  const me = await getMe(token.authId);
 
   const ownerTweet: any = tweetOwnerRef.data.tweets.find((t: any) => {
     if (t.id == tweetId) {
@@ -187,7 +188,8 @@ export async function tweetActionCounterUpdater(
   }
 
   // Aca pushea los datos cambiados previamente para actualizar la información de la referencia.
-
+  me.data.likes.push(tweetRef.data);
+  await me.push();
   await tweetRef.push();
   await tweetOwnerRef.push();
   await saveAction(action, tweetRef, token);

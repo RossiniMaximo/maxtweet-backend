@@ -2,8 +2,9 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/api/user": "pages/api/user.js",
-  "/api/tweet": "pages/api/tweet.js",
   "/api/user/feed": "pages/api/user/feed.js",
-  "/api/tweet/comments": "pages/api/tweet/comments.js"
+  "/api/user": "pages/api/user.js",
+  "/api/user/suggestFollow": "pages/api/user/suggestFollow.js",
+  "/api/auth": "pages/api/auth.js",
+  "/api/auth/token": "pages/api/auth/token.js"
 }
