@@ -8,7 +8,7 @@ module.exports = {
           { key: "Access-Control-Allow-Credentials", value: "true" },
           {
             key: "Access-Control-Allow-Origin",
-            value: "*",
+            value: "https://maxtweet-frontend.vercel.app/",
           },
           {
             key: "Access-Control-Allow-Methods",

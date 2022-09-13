@@ -130,14 +130,13 @@ export async function getOthersProfile(userId: number) {
 }
 
 // This function was crashing every time because of the for loop , It was falling
-// into recursion because I was looping until the array length  had 2 elements but It may never have to.
+// into recursion because I was looping until the array length  had 2 elements but It may never have two.
 export async function getWhoToFollow(token) {
   const me = await getMe(token.authId);
   const usersList = await User.getAll();
 
   let arr = [];
-  let newArr = [];
-  // Fix this shit
+
   for (let i = 0; i < 2; i++) {
     const randomUser = usersList.map((user) => {
       return user;
@@ -156,10 +155,6 @@ export async function getWhoToFollow(token) {
       }
     });
   }
-  /*   for (const user of arr) {
-    console.log(user.fullname);
-  } */
-
   return arr;
 }
 
@@ -190,7 +185,7 @@ function compareFunction(a, b) {
 
 export async function getMostFollowedUsers() {
   // Bring users and compare their followers length to sort them
-  //  use .sort()
+
   const users = await User.getAll();
   const sliceData = users.map((user) => {
     return {
