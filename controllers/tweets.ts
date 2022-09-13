@@ -266,6 +266,7 @@ export async function addComment(body, { authId }) {
   // en la creación del comentario y agregar el comentario a sus replies.
 
   const me = await getMe(authId);
+
   let randomId = randomInteger(9999, 100000);
   const newComment = {
     comment: body.newComment.comment,
@@ -281,10 +282,8 @@ export async function addComment(body, { authId }) {
   // Aca obtiene la referencia del  tweet en la collection Tweet y al usuario dueño del tweet.
 
   const tweet = await Tweets.findById(body.newComment.tweetId);
-  console.log("TWEET :", tweet);
 
   const tweetOwnerId = tweet.data.userId;
-  console.log("TWEET OWNER ID", tweetOwnerId);
 
   const tweetOwner = await User.findById(tweetOwnerId);
 
@@ -329,7 +328,13 @@ export async function addComment(body, { authId }) {
   //  left the document the way it was before of pushing the new reply.
 
   if (me.data.generatedId == tweetOwner.data.generatedId) {
-    await me.push();
+    tweetOwner.data.feed.find((t: any) => {
+      if (t.id == body.newComment.tweetId) {
+        t.info[0].comments += 1;
+        t.comments.push(newComment);
+      }
+    });
+    await tweetOwner.push();
     await tweet.push();
     return true;
   } else {
