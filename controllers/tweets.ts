@@ -334,6 +334,7 @@ export async function addComment(body, { authId }) {
         t.comments.push(newComment);
       }
     });
+    tweetOwner.data.replies.push(newComment);
     await tweetOwner.push();
     await tweet.push();
     return true;
