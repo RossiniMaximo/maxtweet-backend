@@ -100,9 +100,8 @@ export async function saveAction(action, tweet, token) {
     user.data.likes.find(async (t: any) => {
       if (t.id == tweet.data.id) {
         // console.log("hay otro igual");
-        return false;
-      } else if (t.id != undefined) {
-        // console.log("no habia otro igual");
+        return;
+      } else {
         user.data.likes.push(tweet.data);
         await user.push();
       }
